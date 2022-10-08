@@ -9,3 +9,19 @@
     display: flex;
     flex-wrap: wrap;
 }
+.blank{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+.walls{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(55, 55, 97);
+}
+#test{  
+        height: 200px;
+        width: 200px;
+        background-color: #013A6B;
+        background-image: -webkit-linear-gradient(45deg, #013A6B 50%, #ffffff 50%);
+}
