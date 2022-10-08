@@ -8,6 +8,7 @@
     height: 600px;
     display: flex;
     flex-wrap: wrap;
+
     position: absolute;
     top: 0;
     bottom: 0;
@@ -24,6 +25,7 @@
     height: 20px;
     background-color: rgb(55, 55, 97);
 }
+
 /* #test{  
         height: 200px;
         width: 200px;
