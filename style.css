@@ -3,9 +3,29 @@
     margin: 0;
 }
 #map{
-    margin: auto auto;
+    margin: auto;
     width: 580px;
     height: 600px;
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
+.blank{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+.walls{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(55, 55, 97);
+}
+/* #test{  
+        height: 200px;
+        width: 200px;
+        background-color: #013A6B;
+        background-image: -webkit-linear-gradient(45deg, #013A6B 50%, #ffffff 50%); */
