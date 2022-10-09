@@ -1,6 +1,8 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    /* background-color: black; */
 }
 
 #map {
@@ -37,23 +39,60 @@
 .three {
     height: 20px;
     width: 20px;
-    background-image: -webkit-linear-gradient(45deg, rgb(161, 26, 66) 50%, white 50%);
+    background-image: -webkit-linear-gradient(45deg, rgb(161, 26, 66) 50%, transparent 50%);
 }
 
 .four {
     height: 20px;
     width: 20px;
-    background-image: -webkit-linear-gradient(135deg, rgb(161, 26, 66) 50%, white 50%);
+    background-image: -webkit-linear-gradient(135deg, rgb(161, 26, 66) 50%, transparent 50%);
 }
 
 .five {
     height: 20px;
     width: 20px;
-    background-image: -webkit-linear-gradient(45deg, #013A6B 50%, rgb(161, 26, 66) 50%);
+    background-image: -webkit-linear-gradient(45deg, rgb(55, 55, 97) 50%, rgb(161, 26, 66) 50%);
 }
 
 .six {
     height: 20px;
     width: 20px;
-    background-image: -webkit-linear-gradient(135deg, #013A6B 50%, rgb(161, 26, 66) 50%);
+    background-image: -webkit-linear-gradient(135deg, rgb(55, 55, 97) 50%, rgb(161, 26, 66) 50%);
+}
+
+.jail {
+    border-top: 2px black solid;
+    border-bottom: 0px;
+    height: 20px;
+    width: 20px;
+}
+
+.food{
+    background-color: rgb(153, 135, 55);
+    width: 20px;
+    height: 20px;
+    border: 6px solid white;
+    border-radius: 50%; 
+    opacity: 1;
+}
+.food2{
+    background-color: rgb(153, 135, 55);
+    width: 20px;
+    height: 20px;
+    border: 5px solid white;
+    border-radius: 50%; 
+    opacity: 0.8;
+}
+.power-pellet{
+    background-color: rgb(153, 135, 55);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.pacman{
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
