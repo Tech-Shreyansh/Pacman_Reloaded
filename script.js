@@ -1,6 +1,6 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
-let pos = 130;
+let pos = 406;
 
 // MAP DESIGN (29 X 30)
 const squares = [];
@@ -102,7 +102,13 @@ function pacman() {
 function updatePacman() {
     document.body.onkeydown = function (e) {
         if (e.key == "ArrowLeft") {
-            if (coordinates[pos-1] == 0||coordinates[pos-1] == -2||coordinates[pos-1] == -1)
+            if(pos == 406)
+            {
+                squares[pos].className = "";
+                squares[pos].classList.add("blank");
+                pos=434;
+            }
+            else if (coordinates[pos-1] == 0||coordinates[pos-1] == -2||coordinates[pos-1] == -1)
             {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
@@ -110,7 +116,13 @@ function updatePacman() {
             }
         }
         else if (e.key == "ArrowRight") {
-            if (coordinates[pos+1] == 0||coordinates[pos+1] == -2||coordinates[pos+1] == -1)
+            if(pos == 434)
+            {
+                squares[pos].className = "";
+                squares[pos].classList.add("blank");
+                pos=406;
+            }
+            else if (coordinates[pos+1] == 0||coordinates[pos+1] == -2||coordinates[pos+1] == -1)
             {
             squares[pos].className = "";
             squares[pos].classList.add("blank");
