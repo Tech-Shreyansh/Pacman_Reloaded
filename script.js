@@ -1,6 +1,6 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
-let pos = 406;
+let pos = 130;
 
 // MAP DESIGN (29 X 30)
 const squares = [];
