@@ -468,7 +468,7 @@ function updateghost2() {
             }
             else {
                 if (squares[po2 + 1].classList.contains("blank")) {
-                    if (f == 0) {
+                    if (g == 0) {
                         po2++;
                         squares[po2 - 1].className = "";
                         squares[po2 - 1].className = "blank";
@@ -517,7 +517,7 @@ function updateghost2() {
                     }
                 }
                 else {
-                    if (f == 0) {
+                    if (g == 0) {
                         po2 = 433;
                         squares[407].className = "";
                         squares[407].className = "blank";
