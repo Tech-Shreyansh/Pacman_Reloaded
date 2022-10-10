@@ -112,6 +112,17 @@
     background-size: contain;
     border-radius: 50%;
 }
+    
+.pacman,
+.pacman-down,
+.pacman-left,
+.pacman-right,
+.pacman-up {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+}
 
 .pacman {
     background-image: url(images/base.png);
