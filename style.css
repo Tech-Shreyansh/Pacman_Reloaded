@@ -34,7 +34,7 @@
 .pacman-up,
 .pacman-right,
 .pacman-down,
-.pacman-left
+.pacman-left,
 .ghost1{
     width: 25px;
     height: 25px;
@@ -61,11 +61,11 @@
 }
 
 .five {
-    background-image: -webkit-linear-gradient(45deg, rgb(146, 6, 48)50%, #4194e8 50%);
+    background-image: -webkit-linear-gradient(45deg, rgb(146, 6, 48) 50%, #4194e8 50%);
 }
 
 .six {
-    background-image: -webkit-linear-gradient(135deg, rgb(146, 6, 48)50%, #4194e8 50%);
+    background-image: -webkit-linear-gradient(135deg, rgb(146, 6, 48) 50%, #4194e8 50%);
 }
 
 .jail {
@@ -99,6 +99,18 @@
 
 .ghost1{
     background-color: rgb(60, 186, 32);
+    border-radius: 50%;
+}
+    
+.pacman,
+.pacman-down,
+.pacman-left,
+.pacman-right,
+.pacman-up {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
 }
     
 .pacman,
