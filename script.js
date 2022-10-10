@@ -2,7 +2,7 @@
 let frames = 0;
 let pos = 130;
 let po1 = 414;
-let f=1;
+let f=0;
 
 // MAP DESIGN (29 X 30)
 const squares = [];
@@ -109,44 +109,87 @@ function ghost() {
     square.classList.add("ghost1");
 }
 
-function updateghost() {
-    if (frames % 60 == 29||frames % 60 == 59)
+function updateghost() 
+{
+    if (frames % 20==0)
     {
-        if (coordinates[po1+1] == 1||coordinates[po1+1] == 2)
-            {}
+            if (coordinates[po1+1] == 1||coordinates[po1+1] == 2)
+                {}
+            else if(po1 == 433)
+            {
+                if(squares[po1+1].classList.contains("blank"))
+                {
+                    if(f==0)
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "blank";
+                            f=0;
+                        }
+                        else
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "food";
+                            f=0;
+                        }
+                }
+                else
+                {
+                    if(f==0)
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "blank";
+                            f=1;
+                        }
+                        else
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "food";
+                            f=1;
+                        }
+                }
+            }
             else
             {
                 if(squares[po1+1].classList.contains("blank"))
                 {
                     if(f==0)
                     {
-                     f=1;
-                     squares[po1].className = "";
-                     squares[po1].className = "blank";
-                     po1++;
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "blank";
+                        f=0;
                     }
                     else
                     {
-                        f=1;
-                        squares[po1].className = "";
-                        squares[po1].className = "food";
                         po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "food";
+                        f=0;
                     }
                 }
                 else if(coordinates[po1+1] == 0)
                 {
-                    f=2
-                    squares[po1].className = "";
-                    squares[po1].className = "food";
-                    po1++;
-                }
-                else
-                {
-                    squares[po1].className = "";
-                    squares[po1].className = "blank";
-                    po1++;
+                    if(f==0)
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "blank";
+                        f=1;
+                    }
+                    else
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "food";
+                        f=1;
+                    }
                 }
             }
+            console.log(po1);
     }
 }
 
