@@ -190,7 +190,6 @@ function updatePacman() {
     }
 }
 
-
 //GHOST
 
 function ghost() {
