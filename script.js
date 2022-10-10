@@ -12,6 +12,7 @@ let g = 0;
 let h = 0;
 let i = 0;
 let j = 0;
+let score = 0;
 let direction = 1;
 let d1, d2, d3, d4, d5;
 
@@ -1266,7 +1267,6 @@ function loop() {
         d3 = Math.random();
         d4 = Math.random();
         d5 = Math.random();
-        console.log(d);
     }
 }
 loop();
