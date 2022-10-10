@@ -15,6 +15,7 @@ let j = 0;
 let direction = 1;
 let d1, d2, d3, d4, d5;
 
+
 // MAP DESIGN (29 X 30)
 const squares = [];
 const coordinates = [
@@ -108,7 +109,7 @@ function food() {
 // PACMAN
 function pacman() {
     const square = squares[pos];
-    if (frames % 40 == 20) {
+    if (frames % 60 == 30) {
         if (direction == 1) {
             square.className = "";
             square.classList.add("pacman-up");
@@ -127,7 +128,7 @@ function pacman() {
         }
 
     }
-    else if (frames % 40 == 0) {
+    else if (frames % 60 == 0) {
         square.className = "";
         square.classList.add("pacman");
     }
@@ -136,6 +137,12 @@ function pacman() {
     // square.classList.add("pacman-right");
 }
 
+function scoreCount() {
+    const scoreDisplay = document.getElementById("score");
+    if (squares[pos].classList.contains("food") || squares[pos].classList.contains("food2")) score += 10;
+    else if (squares[pos].classList.contains("power-pellet")) score += 200;
+    scoreDisplay.innerHTML = "SCORE: " + score;
+}
 function updatePacman() {
     document.body.onkeydown = function (e) {
         if (e.key == "ArrowLeft") {
@@ -143,11 +150,13 @@ function updatePacman() {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos = 434;
+                scoreCount();
             }
             else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos--;
+                scoreCount();
             }
             direction = 4;
         }
@@ -156,11 +165,13 @@ function updatePacman() {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos = 406;
+                scoreCount();
             }
             else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos++;
+                scoreCount();
             }
             direction = 2;
         }
@@ -169,6 +180,7 @@ function updatePacman() {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos = pos - 29;
+                scoreCount();
             }
             direction = 1;
         }
@@ -177,9 +189,11 @@ function updatePacman() {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos = pos + 29;
+                scoreCount();
             }
             direction = 3;
         }
+        console.log(score);
     }
 }
 

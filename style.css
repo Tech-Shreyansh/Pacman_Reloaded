@@ -5,18 +5,17 @@
     background-color: black;
 }
 
-#map{
-    margin: auto;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
     width: 725px;
     height: 750px;
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
 }
 
 .blank,
@@ -96,12 +95,12 @@
     border-radius: 50%;
 }
 
-.pacman{
+.pacman {
     background-color: white;
     border-radius: 50%;
 }
 
-.ghost1{
+.ghost1 {
     background-color: rgb(60, 186, 32);
     border-radius: 50%;
 }
@@ -132,7 +131,7 @@
     background-size: contain;
     border-radius: 50%;
 }
-    
+
 .pacman,
 .pacman-down,
 .pacman-left,
@@ -163,3 +162,16 @@
 .pacman-left {
     background-image: url(images/left.png);
 }
+
+#score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: 2px white solid;
+    color: white;
+    font-size: 30px;
+    margin: 30px;
+}
+
