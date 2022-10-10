@@ -1,6 +1,7 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
 let pos = 130;
+let direction = 1;
 
 // MAP DESIGN (29 X 30)
 const squares = [];
@@ -32,12 +33,12 @@ const coordinates = [
     -1, -1, 1, 0, 2, 2, 2, 2, 2, 0, 2, -1, 1, 1, 5, 6, 1, 1, -1, 2, 2, 2, 2, 2, 2, 0, 1, -1, -1,
     -1, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 1, -1, -1,
     1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
-    1, 1, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 1,
+    1, 1, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 ]
 function drawMap() {
-    
+
     const map = document.getElementById('map');
     for (let i = 0; i < coordinates.length; i++) {
         const square = document.createElement('div');
@@ -95,61 +96,86 @@ function food() {
 // PACMAN
 function pacman() {
     const square = squares[pos];
-    square.className = "";
-    square.classList.add("pacman");
+    if (frames % 40 == 20) {
+        if (direction == 1) {
+            square.className = "";
+            square.classList.add("pacman-up");
+        }
+        else if (direction == 2) {
+            square.className = "";
+            square.classList.add("pacman-right");
+        }
+        else if (direction == 3) {
+            square.className = "";
+            square.classList.add("pacman-down");
+        }
+        else if (direction == 4){
+            square.className = "";
+            square.classList.add("pacman-left");
+        }
+        
+    }
+    else if (frames % 40 == 0) {
+        square.className = "";
+        square.classList.add("pacman");
+    }
+
+    // square.className = "";
+    // square.classList.add("pacman-right");
 }
 
+
 function updatePacman() {
-    document.body.onkeydown = function (e) {
+    document.body.onkeyup = function (e) {
         if (e.key == "ArrowLeft") {
-            if(pos == 406)
-            {
+            if (pos == 406) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
-                pos=434;
+                pos = 434;
             }
-            else if (coordinates[pos-1] == 0||coordinates[pos-1] == -2||coordinates[pos-1] == -1)
-            {
+            else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos--;
             }
+            direction = 4;
         }
         else if (e.key == "ArrowRight") {
-            if(pos == 434)
-            {
+            if (pos == 434) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
-                pos=406;
+                pos = 406;
             }
-            else if (coordinates[pos+1] == 0||coordinates[pos+1] == -2||coordinates[pos+1] == -1)
-            {
-            squares[pos].className = "";
-            squares[pos].classList.add("blank");
-            pos++;
+            else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
+                squares[pos].className = "";
+                squares[pos].classList.add("blank");
+                pos++;
             }
+            direction = 2;
         }
         else if (e.key == "ArrowUp") {
-            if (coordinates[pos-29] == 0||coordinates[pos-29] == -2||coordinates[pos-29] == -1)
-            {
-            squares[pos].className = "";
-            squares[pos].classList.add("blank");
-            pos=pos-29;
+            if (coordinates[pos - 29] == 0 || coordinates[pos - 29] == -2 || coordinates[pos - 29] == -1) {
+                squares[pos].className = "";
+                squares[pos].classList.add("blank");
+                pos = pos - 29;
             }
+            direction = 1;
         }
         else if (e.key == "ArrowDown") {
-            if (coordinates[pos+29] == 0||coordinates[pos+29] == -2||coordinates[pos+29] == -1)
-            {
-            squares[pos].className = "";
-            squares[pos].classList.add("blank");
-            pos=pos+29;
+            if (coordinates[pos + 29] == 0 || coordinates[pos + 29] == -2 || coordinates[pos + 29] == -1) {
+                squares[pos].className = "";
+                squares[pos].classList.add("blank");
+                pos = pos + 29;
             }
+            direction = 3;
         }
-
-        console.log(e);
+        // console.log(direction);
     }
 }
 
+// function(pacmanAnimation){
+
+// }
 // Loop
 
 drawMap();
