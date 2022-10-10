@@ -232,7 +232,7 @@ function ghost5() {
 
 function updateghost1() {
     if (d1 < 0.25) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po1 + 1] == 1 || coordinates[po1 + 1] == 2) { }
             else if (po1 == 433) {
                 if (squares[po1 + 1].classList.contains("blank")) {
@@ -297,7 +297,7 @@ function updateghost1() {
         }
     }
     else if (d1 < 0.5) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po1 - 1] == 1 || coordinates[po1 - 1] == 2) { }
             else if (po1 == 407) {
                 if (squares[po1 - 1].classList.contains("blank")) {
@@ -362,7 +362,7 @@ function updateghost1() {
         }
     }
     else if (d1 < 0.75) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po1 - 29] == 1 || coordinates[po1 - 29] == 2) { }
             else {
                 if (squares[po1 - 29].classList.contains("blank")) {
@@ -397,7 +397,7 @@ function updateghost1() {
         }
     }
     else if (d1 < 1) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po1 + 29] == 1 || coordinates[po1 + 29] == 2) { }
             else {
                 if (squares[po1 + 29].classList.contains("blank")) {
@@ -434,7 +434,7 @@ function updateghost1() {
 }
 function updateghost2() {
     if (d2 < 0.25) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po2 + 1] == 1 || coordinates[po2 + 1] == 2) { }
             else if (po2 == 433) {
                 if (squares[po2 + 1].classList.contains("blank")) {
@@ -499,7 +499,7 @@ function updateghost2() {
         }
     }
     else if (d2 < 0.5) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po2 - 1] == 1 || coordinates[po2 - 1] == 2) { }
             else if (po2 == 407) {
                 if (squares[po2 - 1].classList.contains("blank")) {
@@ -564,7 +564,7 @@ function updateghost2() {
         }
     }
     else if (d2 < 0.75) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po3 - 29] == 1 || coordinates[po2 - 29] == 2) { }
             else {
                 if (squares[po2 - 29].classList.contains("blank")) {
@@ -599,7 +599,7 @@ function updateghost2() {
         }
     }
     else if (d2 < 1) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po2 + 29] == 1 || coordinates[po2 + 29] == 2) { }
             else {
                 if (squares[po2 + 29].classList.contains("blank")) {
@@ -636,7 +636,7 @@ function updateghost2() {
 }
 function updateghost3() {
     if (d3 < 0.25) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po3 + 1] == 1 || coordinates[po3 + 1] == 2) { }
             else if (po3 == 433) {
                 if (squares[po3 + 1].classList.contains("blank")) {
@@ -701,7 +701,7 @@ function updateghost3() {
         }
     }
     else if (d3 < 0.5) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po3 - 1] == 1 || coordinates[po3 - 1] == 2) { }
             else if (po3 == 407) {
                 if (squares[po3 - 1].classList.contains("blank")) {
@@ -766,7 +766,7 @@ function updateghost3() {
         }
     }
     else if (d3 < 0.75) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po3 - 29] == 1 || coordinates[po3 - 29] == 2) { }
             else {
                 if (squares[po3 - 29].classList.contains("blank")) {
@@ -801,7 +801,7 @@ function updateghost3() {
         }
     }
     else if (d3 < 1) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po3 + 29] == 1 || coordinates[po3 + 29] == 2) { }
             else {
                 if (squares[po3 + 29].classList.contains("blank")) {
@@ -838,7 +838,7 @@ function updateghost3() {
 }
 function updateghost4() {
     if (d4 < 0.25) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po4 + 1] == 1 || coordinates[po4 + 1] == 2) { }
             else if (po4 == 433) {
                 if (squares[po4 + 1].classList.contains("blank")) {
@@ -903,7 +903,7 @@ function updateghost4() {
         }
     }
     else if (d4 < 0.5) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po4 - 1] == 1 || coordinates[po4 - 1] == 2) { }
             else if (po4 == 407) {
                 if (squares[po4 - 1].classList.contains("blank")) {
@@ -968,7 +968,7 @@ function updateghost4() {
         }
     }
     else if (d4 < 0.75) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po4 - 29] == 1 || coordinates[po4 - 29] == 2) { }
             else {
                 if (squares[po4 - 29].classList.contains("blank")) {
@@ -1003,7 +1003,7 @@ function updateghost4() {
         }
     }
     else if (d4 < 1) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po4 + 29] == 1 || coordinates[po4 + 29] == 2) { }
             else {
                 if (squares[po4 + 29].classList.contains("blank")) {
@@ -1040,7 +1040,7 @@ function updateghost4() {
 }
 function updateghost5() {
     if (d5 < 0.25) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po5 + 1] == 1 || coordinates[po5 + 1] == 2) { }
             else if (po5 == 433) {
                 if (squares[po5 + 1].classList.contains("blank")) {
@@ -1105,7 +1105,7 @@ function updateghost5() {
         }
     }
     else if (d5 < 0.5) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po5 - 1] == 1 || coordinates[po5 - 1] == 2) { }
             else if (po5 == 407) {
                 if (squares[po5 - 1].classList.contains("blank")) {
@@ -1170,7 +1170,7 @@ function updateghost5() {
         }
     }
     else if (d5 < 0.75) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po5 - 29] == 1 || coordinates[po5 - 29] == 2) { }
             else {
                 if (squares[po5 - 29].classList.contains("blank")) {
@@ -1205,7 +1205,7 @@ function updateghost5() {
         }
     }
     else if (d5 < 1) {
-        if (frames % 10 == 0) {
+        if (frames % 6 == 0) {
             if (coordinates[po5 + 29] == 1 || coordinates[po5 + 29] == 2) { }
             else {
                 if (squares[po5 + 29].classList.contains("blank")) {
