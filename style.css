@@ -4,11 +4,13 @@
     box-sizing: border-box;
     background-color: black;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #map {
     width: 725px;
     height: 750px;
@@ -32,7 +34,7 @@ body{
 .pacman-right,
 .pacman-down,
 .pacman-left,
-.ghost1{
+.ghost1 {
     width: 25px;
     height: 25px;
 }
@@ -89,16 +91,16 @@ body{
     border-radius: 50%;
 }
 
-.pacman{
+.pacman {
     background-color: white;
     border-radius: 50%;
 }
 
-.ghost1{
+.ghost1 {
     background-color: rgb(60, 186, 32);
     border-radius: 50%;
 }
-    
+
 .pacman,
 .pacman-down,
 .pacman-left,
@@ -109,7 +111,7 @@ body{
     background-size: contain;
     border-radius: 50%;
 }
-    
+
 .pacman,
 .pacman-down,
 .pacman-left,
@@ -141,7 +143,7 @@ body{
     background-image: url(images/left.png);
 }
 
-#score{
+#score {
     display: flex;
     justify-content: center;
     align-items: center;
