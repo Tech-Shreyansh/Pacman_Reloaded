@@ -1,7 +1,11 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
 let pos = 130;
+
+let po1 = 414;
+let f=0;
 let direction = 1;
+
 
 // MAP DESIGN (29 X 30)
 const squares = [];
@@ -124,6 +128,97 @@ function pacman() {
     // square.classList.add("pacman-right");
 }
 
+//GHOST
+
+function ghost() {
+    const square = squares[po1];
+    square.className = "";
+    square.classList.add("ghost1");
+}
+
+function updateghost() 
+{
+    if (frames % 20==0)
+    {
+            if (coordinates[po1+1] == 1||coordinates[po1+1] == 2)
+                {}
+            else if(po1 == 433)
+            {
+                if(squares[po1+1].classList.contains("blank"))
+                {
+                    if(f==0)
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "blank";
+                            f=0;
+                        }
+                        else
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "food";
+                            f=0;
+                        }
+                }
+                else
+                {
+                    if(f==0)
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "blank";
+                            f=1;
+                        }
+                        else
+                        {
+                            po1=406;
+                            squares[433].className = "";
+                            squares[433].className = "food";
+                            f=1;
+                        }
+                }
+            }
+            else
+            {
+                if(squares[po1+1].classList.contains("blank"))
+                {
+                    if(f==0)
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "blank";
+                        f=0;
+                    }
+                    else
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "food";
+                        f=0;
+                    }
+                }
+                else if(coordinates[po1+1] == 0)
+                {
+                    if(f==0)
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "blank";
+                        f=1;
+                    }
+                    else
+                    {
+                        po1++;
+                        squares[po1-1].className = "";
+                        squares[po1-1].className = "food";
+                        f=1;
+                    }
+                }
+            }
+            console.log(po1);
+    }
+}
 
 function updatePacman() {
     document.body.onkeyup = function (e) {
@@ -183,8 +278,9 @@ function loop() {
     frames++;
     updatePacman();
     pacman();
+    ghost();
+    updateghost();
     food();
     window.requestAnimationFrame(loop);
 }
-// pacman();
 loop();

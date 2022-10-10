@@ -5,7 +5,7 @@
     background-color: black;
 }
 
-#map {
+#map{
     margin: auto;
     width: 725px;
     height: 750px;
@@ -68,7 +68,7 @@
 }
 
 .jail {
-    border-top: 2px black solid;
+    border-top: 2px rgb(255, 255, 255) solid;
     border-bottom: 0px;
 }
 
@@ -80,7 +80,6 @@
 }
 
 .food2 {
-    background-color: rgb(153, 135, 55);
     border: 5.5px solid black;
     border-radius: 50%;
     opacity: 1;
@@ -91,6 +90,15 @@
     border-radius: 50%;
 }
 
+.pacman{
+    background-color: white;
+    border-radius: 50%;
+}
+
+.ghost1{
+    background-color: rgb(60, 186, 32);
+}
+    
 .pacman,
 .pacman-down,
 .pacman-left,
