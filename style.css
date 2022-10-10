@@ -5,7 +5,7 @@
     background-color: black;
 }
 
-#map{
+#map {
     margin: auto;
     width: 725px;
     height: 750px;
@@ -19,10 +19,26 @@
     z-index: -1;
 }
 
-.blank, .walls, .si, .three, .four, .five, .six, .jail, .food, .food2, .power-pellet, .pacman{
+.blank,
+.walls,
+.si,
+.three,
+.four,
+.five,
+.six,
+.jail,
+.food,
+.food2,
+.power-pellet,
+.pacman,
+.pacman-up,
+.pacman-right,
+.pacman-down,
+.pacman-left {
     width: 25px;
     height: 25px;
 }
+
 .blank {
     background-color: black;
 }
@@ -36,11 +52,11 @@
 }
 
 .three {
-    background-image: -webkit-linear-gradient(45deg,#4194e8 50%, black 50%);
+    background-image: -webkit-linear-gradient(45deg, #4194e8 50%, black 50%);
 }
 
 .four {
-    background-image: -webkit-linear-gradient(135deg,#4194e8 50%, black 50%);
+    background-image: -webkit-linear-gradient(135deg, #4194e8 50%, black 50%);
 }
 
 .five {
@@ -48,7 +64,7 @@
 }
 
 .six {
-    background-image: -webkit-linear-gradient(135deg,rgb(146, 6, 48)50%,#4194e8 50%);
+    background-image: -webkit-linear-gradient(135deg, rgb(146, 6, 48)50%, #4194e8 50%);
 }
 
 .jail {
@@ -56,24 +72,51 @@
     border-bottom: 0px;
 }
 
-.food{
+.food {
     background-color: rgb(153, 135, 55);
-    border: 4px solid black;
-    border-radius: 50%; 
-    opacity: 1;
-}
-.food2{
-    background-color: rgb(153, 135, 55);
-    border: 4.5px solid black;
-    border-radius: 50%; 
+    border: 6px solid black;
+    border-radius: 50%;
     opacity: 0.8;
 }
-.power-pellet{
+
+.food2 {
+    background-color: rgb(153, 135, 55);
+    border: 5.5px solid black;
+    border-radius: 50%;
+    opacity: 1;
+}
+
+.power-pellet {
     background-color: rgb(153, 135, 55);
     border-radius: 50%;
 }
 
-.pacman{
-    background-color: white;
+.pacman,
+.pacman-down,
+.pacman-left,
+.pacman-right,
+.pacman-up {
+    background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 50%;
+}
+
+.pacman {
+    background-image: url(images/base.png);
+}
+
+.pacman-up {
+    background-image: url(images/up.png);
+}
+
+.pacman-right {
+    background-image: url(images/right.png);
+}
+
+.pacman-down {
+    background-image: url(images/down.png);
+}
+
+.pacman-left {
+    background-image: url(images/left.png);
 }
