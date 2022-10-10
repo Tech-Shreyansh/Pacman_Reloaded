@@ -4,19 +4,16 @@
     box-sizing: border-box;
     background-color: black;
 }
-
-#map{
-    margin: auto;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#map {
     width: 725px;
     height: 750px;
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
 }
 
 .blank,
@@ -143,3 +140,16 @@
 .pacman-left {
     background-image: url(images/left.png);
 }
+
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: 2px white solid;
+    color: white;
+    font-size: 30px;
+    margin: 30px;
+}
+
