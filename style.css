@@ -34,7 +34,8 @@
 .pacman-up,
 .pacman-right,
 .pacman-down,
-.pacman-left {
+.pacman-left
+.ghost1{
     width: 25px;
     height: 25px;
 }
@@ -80,6 +81,7 @@
 }
 
 .food2 {
+    background-color: rgb(153, 135, 55);
     border: 5.5px solid black;
     border-radius: 50%;
     opacity: 1;
@@ -104,6 +106,7 @@
 .pacman-left,
 .pacman-right,
 .pacman-up {
+    background-color: black;
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
