@@ -167,8 +167,9 @@ body {
     background-image: url(images/left.png);
 }
 
-#score {
+#stats {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 200px;

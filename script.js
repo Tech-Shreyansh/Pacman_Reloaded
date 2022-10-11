@@ -1,6 +1,7 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
 let count = 0;
+let time = 0;
 let pos = 130;
 const Ghost_1 = {
     po9: 414,
@@ -151,7 +152,14 @@ function scoreCount() {
     const scoreDisplay = document.getElementById("score");
     if (squares[pos].classList.contains("food") || squares[pos].classList.contains("food2")) score += 10;
     else if (squares[pos].classList.contains("power-pellet")) score += 200;
-    scoreDisplay.innerHTML = "SCORE: " + score;
+    scoreDisplay.innerHTML = "SCORE:" + score;
+}
+function timecount()
+{
+    if(frames%60==0)
+    time++;
+    const timeDisplay = document.getElementById("time");
+    timeDisplay.innerHTML = " TIME: " + time + " sec";
 }
 function updatePacman() {
     document.body.onkeydown = function (e) {
@@ -542,6 +550,7 @@ function loop() {
             updateghost4();
             updateghost5();
             food();
+            timecount();
             //console.log(t);
             window.requestAnimationFrame(loop);
             d1 = Math.random();
@@ -556,11 +565,12 @@ function loop() {
             pacman();
             food();
             window.requestAnimationFrame(loop);
+            timecount();
             //console.log(t);
             count++;
             if (count % 300 == 0)
                 t = 0;
-            console.log(count);
+            //console.log(count);
         }
     }
 }
