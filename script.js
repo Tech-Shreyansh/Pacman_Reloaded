@@ -119,7 +119,7 @@ function food() {
 // PACMAN
 function pacman() {
     const square = squares[pos];
-    if (frames % 10 == 0 || frames % 12 == 0) {
+    if (frames % 10 == 0) {
         square.className = "";
         square.classList.add("pacman");
     }
