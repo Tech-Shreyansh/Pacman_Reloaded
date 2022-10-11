@@ -7,11 +7,11 @@ let po2 = 426;
 let po3 = 739;
 let po4 = 140;
 let po5 = 120;
-let f = 0;
-let g = 0;
-let h = 0;
-let i = 0;
-let j = 0;
+let f = 1;
+let g = 1;
+let h = 1;
+let i = 1;
+let j = 1;
 let score = 0;
 let direction = 1;
 let d1, d2, d3, d4, d5;
@@ -110,7 +110,12 @@ function food() {
 // PACMAN
 function pacman() {
     const square = squares[pos];
-    if (frames % 60 == 30) {
+    if (frames % 10 == 0 || frames % 12 == 0) {
+        square.className = "";
+        square.classList.add("pacman");
+    }
+    else 
+    {
         if (direction == 1) {
             square.className = "";
             square.classList.add("pacman-up");
@@ -127,11 +132,6 @@ function pacman() {
             square.className = "";
             square.classList.add("pacman-left");
         }
-
-    }
-    else if (frames % 60 == 0) {
-        square.className = "";
-        square.classList.add("pacman");
     }
 
     // square.className = "";
@@ -468,7 +468,7 @@ function updateghost2() {
             }
             else {
                 if (squares[po2 + 1].classList.contains("blank")) {
-                    if (f == 0) {
+                    if (g == 0) {
                         po2++;
                         squares[po2 - 1].className = "";
                         squares[po2 - 1].className = "blank";
@@ -517,7 +517,7 @@ function updateghost2() {
                     }
                 }
                 else {
-                    if (f == 0) {
+                    if (g == 0) {
                         po2 = 433;
                         squares[407].className = "";
                         squares[407].className = "blank";
