@@ -1,20 +1,29 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
 let pos = 130;
-
-let po1 = 414;
-let po2 = 426;
-let po3 = 739;
-let po4 = 140;
-let po5 = 120;
-let f = 1;
-let g = 1;
-let h = 1;
-let i = 1;
-let j = 1;
+const Ghost_1 = {
+    po9: 414,
+    v: 1
+}
+const Ghost_2 = {
+    po9: 426,
+    v: 1
+}
+const Ghost_3 = {
+    po9: 739,
+    v: 1
+}
+const Ghost_4 = {
+    po9: 140,
+    v: 1
+}
+const Ghost_5 = {
+    po9: 120,
+    v: 1
+}
 let score = 0;
 let direction = 1;
-let d1, d2, d3, d4, d5;
+let d1, d2, d3, d4, d5,v,po;
 
 
 // MAP DESIGN (29 X 30)
@@ -194,1050 +203,314 @@ function updatePacman() {
             }
             direction = 3;
         }
-        console.log(score);
+        // console.log(score);
     }
 }
 
 //GHOST
 
 function ghost1() {
-    const square = squares[po1];
+    const square = squares[Ghost_1.po9];
     square.className = "";
     square.classList.add("ghost1");
 }
 
 function ghost2() {
-    const square = squares[po2];
+    const square = squares[Ghost_2.po9];
     square.className = "";
     square.classList.add("ghost2");
 }
 
 function ghost3() {
-    const square = squares[po3];
+    const square = squares[Ghost_3.po9];
     square.className = "";
     square.classList.add("ghost3");
 }
 
 function ghost4() {
-    const square = squares[po4];
+    const square = squares[Ghost_4.po9];
     square.className = "";
     square.classList.add("ghost4");
 }
 
 function ghost5() {
-    const square = squares[po5];
+    const square = squares[Ghost_5.po9];
     square.className = "";
     square.classList.add("ghost5");
 }
+function moveright(Ghost1)
+{
+    if (frames % 6 == 0) {
+        if (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) { }
+        else if (Ghost1.po9 == 433) {
+            if (squares[Ghost1.po9 + 1].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 = 406;
+                    squares[433].className = "";
+                    squares[433].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9 = 406;
+                    squares[433].className = "";
+                    squares[433].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 = 406;
+                    squares[433].className = "";
+                    squares[433].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9 = 406;
+                    squares[433].className = "";
+                    squares[433].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+        else {
+            if (squares[Ghost1.po9 + 1].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9++;
+                    squares[Ghost1.po9 - 1].className = "";
+                    squares[Ghost1.po9 - 1].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9++;
+                    squares[Ghost1.po9 - 1].className = "";
+                    squares[Ghost1.po9 - 1].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else if (coordinates[Ghost1.po9 + 1] == 0) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9++;
+                    squares[Ghost1.po9 - 1].className = "";
+                    squares[Ghost1.po9 - 1].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9++;
+                    squares[Ghost1.po9 - 1].className = "";
+                    squares[Ghost1.po9 - 1].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+    }
+}
+function moveleft(Ghost1)
+{
+    if (frames % 6 == 0) {
+        if (coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) { }
+        else if (Ghost1.po9 == 407) {
+            if (squares[Ghost1.po9 - 1].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 = 433;
+                    squares[407].className = "";
+                    squares[407].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9 = 433;
+                    squares[407].className = "";
+                    squares[407].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 = 433;
+                    squares[407].className = "";
+                    squares[407].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9 = 432;
+                    squares[407].className = "";
+                    squares[407].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+        else {
+            if (squares[Ghost1.po9 - 1].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9--;
+                    squares[Ghost1.po9 + 1].className = "";
+                    squares[Ghost1.po9 + 1].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9--;
+                    squares[Ghost1.po9 + 1].className = "";
+                    squares[Ghost1.po9 + 1].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else if (coordinates[Ghost1.po9 - 1] == 0) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9--;
+                    squares[Ghost1.po9 + 1].className = "";
+                    squares[Ghost1.po9 + 1].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9--;
+                    squares[Ghost1.po9 + 1].className = "";
+                    squares[Ghost1.po9 + 1].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+    }
+}
+function moveup(Ghost1)
+{
+    if (frames % 6 == 0) {
+        if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) { }
+        else {
+            if (squares[Ghost1.po9 - 29].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 -= 29;
+                    squares[Ghost1.po9 + 29].className = "";
+                    squares[Ghost1.po9 + 29].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9 -= 29;
+                    squares[Ghost1.po9 + 29].className = "";
+                    squares[Ghost1.po9 + 29].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else if (coordinates[Ghost1.po9 - 29] == 0) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 -= 29;
+                    squares[Ghost1.po9 + 29].className = "";
+                    squares[Ghost1.po9 + 29].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9 -= 29;
+                    squares[Ghost1.po9 + 29].className = "";
+                    squares[Ghost1.po9 + 29].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+    }
+}
 
+function movedown(Ghost1)
+{
+    if (frames % 6 == 0) {
+        if (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2) { }
+        else {
+            if (squares[Ghost1.po9 + 29].classList.contains("blank")) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 += 29;
+                    squares[Ghost1.po9 - 29].className = "";
+                    squares[Ghost1.po9 - 29].className = "blank";
+                    Ghost1.v = 0;
+                }
+                else {
+                    Ghost1.po9 += 29;
+                    squares[Ghost1.po9 - 29].className = "";
+                    squares[Ghost1.po9 - 29].className = "food";
+                    Ghost1.v = 0;
+                }
+            }
+            else if (coordinates[Ghost1.po9 + 29] == 0) {
+                if (Ghost1.v == 0) {
+                    Ghost1.po9 += 29;
+                    squares[Ghost1.po9 - 29].className = "";
+                    squares[Ghost1.po9 - 29].className = "blank";
+                    Ghost1.v = 1;
+                }
+                else {
+                    Ghost1.po9 += 29;
+                    squares[Ghost1.po9 - 29].className = "";
+                    squares[Ghost1.po9 - 29].className = "food";
+                    Ghost1.v = 1;
+                }
+            }
+        }
+    }
+}
 function updateghost1() {
     if (d1 < 0.25) {
-        if (frames % 6 == 0) {
-            if (coordinates[po1 + 1] == 1 || coordinates[po1 + 1] == 2) { }
-            else if (po1 == 433) {
-                if (squares[po1 + 1].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        f = 0;
-                    }
-                }
-                else {
-                    if (f == 0) {
-                        po1 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po1 + 1].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1++;
-                        squares[po1 - 1].className = "";
-                        squares[po1 - 1].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1++;
-                        squares[po1 - 1].className = "";
-                        squares[po1 - 1].className = "food";
-                        f = 0;
-                    }
-                }
-                else if (coordinates[po1 + 1] == 0) {
-                    if (f == 0) {
-                        po1++;
-                        squares[po1 - 1].className = "";
-                        squares[po1 - 1].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1++;
-                        squares[po1 - 1].className = "";
-                        squares[po1 - 1].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-        }
+       moveright(Ghost_1);
     }
     else if (d1 < 0.5) {
-        if (frames % 6 == 0) {
-            if (coordinates[po1 - 1] == 1 || coordinates[po1 - 1] == 2) { }
-            else if (po1 == 407) {
-                if (squares[po1 - 1].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        f = 0;
-                    }
-                }
-                else {
-                    if (f == 0) {
-                        po1 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1 = 432;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po1 - 1].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1--;
-                        squares[po1 + 1].className = "";
-                        squares[po1 + 1].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1--;
-                        squares[po1 + 1].className = "";
-                        squares[po1 + 1].className = "food";
-                        f = 0;
-                    }
-                }
-                else if (coordinates[po1 - 1] == 0) {
-                    if (f == 0) {
-                        po1--;
-                        squares[po1 + 1].className = "";
-                        squares[po1 + 1].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1--;
-                        squares[po1 + 1].className = "";
-                        squares[po1 + 1].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-        }
+        moveleft(Ghost_1);
     }
     else if (d1 < 0.75) {
-        if (frames % 6 == 0) {
-            if (coordinates[po1 - 29] == 1 || coordinates[po1 - 29] == 2) { }
-            else {
-                if (squares[po1 - 29].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1 -= 29;
-                        squares[po1 + 29].className = "";
-                        squares[po1 + 29].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1 -= 29;
-                        squares[po1 + 29].className = "";
-                        squares[po1 + 29].className = "food";
-                        f = 0;
-                    }
-                }
-                else if (coordinates[po1 - 29] == 0) {
-                    if (f == 0) {
-                        po1 -= 29;
-                        squares[po1 + 29].className = "";
-                        squares[po1 + 29].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1 -= 29;
-                        squares[po1 + 29].className = "";
-                        squares[po1 + 29].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-        }
+        moveup(Ghost_1);
     }
     else if (d1 < 1) {
-        if (frames % 6 == 0) {
-            if (coordinates[po1 + 29] == 1 || coordinates[po1 + 29] == 2) { }
-            else {
-                if (squares[po1 + 29].classList.contains("blank")) {
-                    if (f == 0) {
-                        po1 += 29;
-                        squares[po1 - 29].className = "";
-                        squares[po1 - 29].className = "blank";
-                        f = 0;
-                    }
-                    else {
-                        po1 += 29;
-                        squares[po1 - 29].className = "";
-                        squares[po1 - 29].className = "food";
-                        f = 0;
-                    }
-                }
-                else if (coordinates[po1 + 29] == 0) {
-                    if (f == 0) {
-                        po1 += 29;
-                        squares[po1 - 29].className = "";
-                        squares[po1 - 29].className = "blank";
-                        f = 1;
-                    }
-                    else {
-                        po1 += 29;
-                        squares[po1 - 29].className = "";
-                        squares[po1 - 29].className = "food";
-                        f = 1;
-                    }
-                }
-            }
-        }
+        movedown(Ghost_1);
     }
 }
 function updateghost2() {
     if (d2 < 0.25) {
-        if (frames % 6 == 0) {
-            if (coordinates[po2 + 1] == 1 || coordinates[po2 + 1] == 2) { }
-            else if (po2 == 433) {
-                if (squares[po2 + 1].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        g = 0;
-                    }
-                }
-                else {
-                    if (g == 0) {
-                        po2 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po2 + 1].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2++;
-                        squares[po2 - 1].className = "";
-                        squares[po2 - 1].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2++;
-                        squares[po2 - 1].className = "";
-                        squares[po2 - 1].className = "food";
-                        g = 0;
-                    }
-                }
-                else if (coordinates[po2 + 1] == 0) {
-                    if (g == 0) {
-                        po2++;
-                        squares[po2 - 1].className = "";
-                        squares[po2 - 1].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2++;
-                        squares[po2 - 1].className = "";
-                        squares[po2 - 1].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-        }
+       moveright(Ghost_2);
     }
     else if (d2 < 0.5) {
-        if (frames % 6 == 0) {
-            if (coordinates[po2 - 1] == 1 || coordinates[po2 - 1] == 2) { }
-            else if (po2 == 407) {
-                if (squares[po2 - 1].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        g = 0;
-                    }
-                }
-                else {
-                    if (g == 0) {
-                        po2 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po2 - 1].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2--;
-                        squares[po2 + 1].className = "";
-                        squares[po2 + 1].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2--;
-                        squares[po2 + 1].className = "";
-                        squares[po2 + 1].className = "food";
-                        g = 0;
-                    }
-                }
-                else if (coordinates[po2 - 1] == 0) {
-                    if (g == 0) {
-                        po2--;
-                        squares[po2 + 1].className = "";
-                        squares[po2 + 1].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2--;
-                        squares[po2 + 1].className = "";
-                        squares[po2 + 1].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-        }
+        moveleft(Ghost_2);
     }
     else if (d2 < 0.75) {
-        if (frames % 6 == 0) {
-            if (coordinates[po3 - 29] == 1 || coordinates[po2 - 29] == 2) { }
-            else {
-                if (squares[po2 - 29].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2 -= 29;
-                        squares[po2 + 29].className = "";
-                        squares[po2 + 29].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2 -= 29;
-                        squares[po2 + 29].className = "";
-                        squares[po2 + 29].className = "food";
-                        g = 0;
-                    }
-                }
-                else if (coordinates[po2 - 29] == 0) {
-                    if (g == 0) {
-                        po2 -= 29;
-                        squares[po2 + 29].className = "";
-                        squares[po2 + 29].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2 -= 29;
-                        squares[po2 + 29].className = "";
-                        squares[po2 + 29].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-        }
+        moveup(Ghost_2);
     }
     else if (d2 < 1) {
-        if (frames % 6 == 0) {
-            if (coordinates[po2 + 29] == 1 || coordinates[po2 + 29] == 2) { }
-            else {
-                if (squares[po2 + 29].classList.contains("blank")) {
-                    if (g == 0) {
-                        po2 += 29;
-                        squares[po2 - 29].className = "";
-                        squares[po2 - 29].className = "blank";
-                        g = 0;
-                    }
-                    else {
-                        po2 += 29;
-                        squares[po2 - 29].className = "";
-                        squares[po2 - 29].className = "food";
-                        g = 0;
-                    }
-                }
-                else if (coordinates[po2 + 29] == 0) {
-                    if (g == 0) {
-                        po2 += 29;
-                        squares[po2 - 29].className = "";
-                        squares[po2 - 29].className = "blank";
-                        g = 1;
-                    }
-                    else {
-                        po2 += 29;
-                        squares[po2 - 29].className = "";
-                        squares[po2 - 29].className = "food";
-                        g = 1;
-                    }
-                }
-            }
-        }
+        movedown(Ghost_2);
     }
 }
 function updateghost3() {
     if (d3 < 0.25) {
-        if (frames % 6 == 0) {
-            if (coordinates[po3 + 1] == 1 || coordinates[po3 + 1] == 2) { }
-            else if (po3 == 433) {
-                if (squares[po3 + 1].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        h = 0;
-                    }
-                }
-                else {
-                    if (h == 0) {
-                        po3 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po3 + 1].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3++;
-                        squares[po3 - 1].className = "";
-                        squares[po3 - 1].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3++;
-                        squares[po3 - 1].className = "";
-                        squares[po3 - 1].className = "food";
-                        h = 0;
-                    }
-                }
-                else if (coordinates[po3 + 1] == 0) {
-                    if (h == 0) {
-                        po3++;
-                        squares[po3 - 1].className = "";
-                        squares[po3 - 1].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3++;
-                        squares[po3 - 1].className = "";
-                        squares[po3 - 1].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-        }
+       moveright(Ghost_3);
     }
     else if (d3 < 0.5) {
-        if (frames % 6 == 0) {
-            if (coordinates[po3 - 1] == 1 || coordinates[po3 - 1] == 2) { }
-            else if (po3 == 407) {
-                if (squares[po3 - 1].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        h = 0;
-                    }
-                }
-                else {
-                    if (h == 0) {
-                        po3 = 407;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3 = 407;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po3 - 1].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3--;
-                        squares[po3 + 1].className = "";
-                        squares[po3 + 1].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3--;
-                        squares[po3 + 1].className = "";
-                        squares[po3 + 1].className = "food";
-                        h = 0;
-                    }
-                }
-                else if (coordinates[po3 - 1] == 0) {
-                    if (h == 0) {
-                        po3--;
-                        squares[po3 + 1].className = "";
-                        squares[po3 + 1].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3--;
-                        squares[po3 + 1].className = "";
-                        squares[po3 + 1].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-        }
+        moveleft(Ghost_3);
     }
     else if (d3 < 0.75) {
-        if (frames % 6 == 0) {
-            if (coordinates[po3 - 29] == 1 || coordinates[po3 - 29] == 2) { }
-            else {
-                if (squares[po3 - 29].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3 -= 29;
-                        squares[po3 + 29].className = "";
-                        squares[po3 + 29].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3 -= 29;
-                        squares[po3 + 29].className = "";
-                        squares[po3 + 29].className = "food";
-                        h = 0;
-                    }
-                }
-                else if (coordinates[po3 - 29] == 0) {
-                    if (h == 0) {
-                        po3 -= 29;
-                        squares[po3 + 29].className = "";
-                        squares[po3 + 29].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3 -= 29;
-                        squares[po3 + 29].className = "";
-                        squares[po3 + 29].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-        }
+        moveup(Ghost_3);
     }
     else if (d3 < 1) {
-        if (frames % 6 == 0) {
-            if (coordinates[po3 + 29] == 1 || coordinates[po3 + 29] == 2) { }
-            else {
-                if (squares[po3 + 29].classList.contains("blank")) {
-                    if (h == 0) {
-                        po3 += 29;
-                        squares[po3 - 29].className = "";
-                        squares[po3 - 29].className = "blank";
-                        h = 0;
-                    }
-                    else {
-                        po3 += 29;
-                        squares[po3 - 29].className = "";
-                        squares[po3 - 29].className = "food";
-                        h = 0;
-                    }
-                }
-                else if (coordinates[po3 + 29] == 0) {
-                    if (h == 0) {
-                        po3 += 29;
-                        squares[po3 - 29].className = "";
-                        squares[po3 - 29].className = "blank";
-                        h = 1;
-                    }
-                    else {
-                        po3 += 29;
-                        squares[po3 - 29].className = "";
-                        squares[po3 - 29].className = "food";
-                        h = 1;
-                    }
-                }
-            }
-        }
+        movedown(Ghost_3);
     }
 }
 function updateghost4() {
     if (d4 < 0.25) {
-        if (frames % 6 == 0) {
-            if (coordinates[po4 + 1] == 1 || coordinates[po4 + 1] == 2) { }
-            else if (po4 == 433) {
-                if (squares[po4 + 1].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        i = 0;
-                    }
-                }
-                else {
-                    if (i == 0) {
-                        po4 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po4 + 1].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4++;
-                        squares[po4 - 1].className = "";
-                        squares[po4 - 1].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4++;
-                        squares[po4 - 1].className = "";
-                        squares[po4 - 1].className = "food";
-                        i = 0;
-                    }
-                }
-                else if (coordinates[po4 + 1] == 0) {
-                    if (i == 0) {
-                        po4++;
-                        squares[po4 - 1].className = "";
-                        squares[po4 - 1].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4++;
-                        squares[po4 - 1].className = "";
-                        squares[po4 - 1].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-        }
+       moveright(Ghost_4);
     }
     else if (d4 < 0.5) {
-        if (frames % 6 == 0) {
-            if (coordinates[po4 - 1] == 1 || coordinates[po4 - 1] == 2) { }
-            else if (po4 == 407) {
-                if (squares[po4 - 1].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        i = 0;
-                    }
-                }
-                else {
-                    if (i == 0) {
-                        po4 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4 = 432;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po4 - 1].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4--;
-                        squares[po4 + 1].className = "";
-                        squares[po4 + 1].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4--;
-                        squares[po4 + 1].className = "";
-                        squares[po4 + 1].className = "food";
-                        i = 0;
-                    }
-                }
-                else if (coordinates[po4 - 1] == 0) {
-                    if (i == 0) {
-                        po4--;
-                        squares[po4 + 1].className = "";
-                        squares[po4 + 1].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4--;
-                        squares[po4 + 1].className = "";
-                        squares[po4 + 1].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-        }
+        moveleft(Ghost_4);
     }
     else if (d4 < 0.75) {
-        if (frames % 6 == 0) {
-            if (coordinates[po4 - 29] == 1 || coordinates[po4 - 29] == 2) { }
-            else {
-                if (squares[po4 - 29].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4 -= 29;
-                        squares[po4 + 29].className = "";
-                        squares[po4 + 29].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4 -= 29;
-                        squares[po4 + 29].className = "";
-                        squares[po4 + 29].className = "food";
-                        i = 0;
-                    }
-                }
-                else if (coordinates[po4 - 29] == 0) {
-                    if (i == 0) {
-                        po4 -= 29;
-                        squares[po4 + 29].className = "";
-                        squares[po4 + 29].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4 -= 29;
-                        squares[po4 + 29].className = "";
-                        squares[po4 + 29].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-        }
+        moveup(Ghost_4);
     }
     else if (d4 < 1) {
-        if (frames % 6 == 0) {
-            if (coordinates[po4 + 29] == 1 || coordinates[po4 + 29] == 2) { }
-            else {
-                if (squares[po4 + 29].classList.contains("blank")) {
-                    if (i == 0) {
-                        po4 += 29;
-                        squares[po4 - 29].className = "";
-                        squares[po4 - 29].className = "blank";
-                        i = 0;
-                    }
-                    else {
-                        po4 += 29;
-                        squares[po4 - 29].className = "";
-                        squares[po4 - 29].className = "food";
-                        i = 0;
-                    }
-                }
-                else if (coordinates[po4 + 29] == 0) {
-                    if (i == 0) {
-                        po4 += 29;
-                        squares[po4 - 29].className = "";
-                        squares[po4 - 29].className = "blank";
-                        i = 1;
-                    }
-                    else {
-                        po4 += 29;
-                        squares[po4 - 29].className = "";
-                        squares[po4 - 29].className = "food";
-                        i = 1;
-                    }
-                }
-            }
-        }
+        movedown(Ghost_4);
     }
 }
 function updateghost5() {
     if (d5 < 0.25) {
-        if (frames % 6 == 0) {
-            if (coordinates[po5 + 1] == 1 || coordinates[po5 + 1] == 2) { }
-            else if (po5 == 433) {
-                if (squares[po5 + 1].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        j = 0;
-                    }
-                }
-                else {
-                    if (j == 0) {
-                        po5 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5 = 406;
-                        squares[433].className = "";
-                        squares[433].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po5 + 1].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5++;
-                        squares[po5 - 1].className = "";
-                        squares[po5 - 1].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5++;
-                        squares[po5 - 1].className = "";
-                        squares[po5 - 1].className = "food";
-                        j = 0;
-                    }
-                }
-                else if (coordinates[po5 + 1] == 0) {
-                    if (j == 0) {
-                        po5++;
-                        squares[po5 - 1].className = "";
-                        squares[po5 - 1].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5++;
-                        squares[po5 - 1].className = "";
-                        squares[po5 - 1].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-        }
+       moveright(Ghost_5);
     }
     else if (d5 < 0.5) {
-        if (frames % 6 == 0) {
-            if (coordinates[po5 - 1] == 1 || coordinates[po5 - 1] == 2) { }
-            else if (po5 == 407) {
-                if (squares[po5 - 1].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        j = 0;
-                    }
-                }
-                else {
-                    if (j == 0) {
-                        po5 = 433;
-                        squares[407].className = "";
-                        squares[407].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5 = 432;
-                        squares[407].className = "";
-                        squares[407].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-            else {
-                if (squares[po5 - 1].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5--;
-                        squares[po5 + 1].className = "";
-                        squares[po5 + 1].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5--;
-                        squares[po5 + 1].className = "";
-                        squares[po5 + 1].className = "food";
-                        j = 0;
-                    }
-                }
-                else if (coordinates[po5 - 1] == 0) {
-                    if (j == 0) {
-                        po5--;
-                        squares[po5 + 1].className = "";
-                        squares[po5 + 1].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5--;
-                        squares[po5 + 1].className = "";
-                        squares[po5 + 1].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-        }
+        moveleft(Ghost_5);
     }
     else if (d5 < 0.75) {
-        if (frames % 6 == 0) {
-            if (coordinates[po5 - 29] == 1 || coordinates[po5 - 29] == 2) { }
-            else {
-                if (squares[po5 - 29].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5 -= 29;
-                        squares[po5 + 29].className = "";
-                        squares[po5 + 29].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5 -= 29;
-                        squares[po5 + 29].className = "";
-                        squares[po5 + 29].className = "food";
-                        j = 0;
-                    }
-                }
-                else if (coordinates[po5 - 29] == 0) {
-                    if (j == 0) {
-                        po5 -= 29;
-                        squares[po5 + 29].className = "";
-                        squares[po5 + 29].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5 -= 29;
-                        squares[po5 + 29].className = "";
-                        squares[po5 + 29].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-        }
+        moveup(Ghost_5);
     }
     else if (d5 < 1) {
-        if (frames % 6 == 0) {
-            if (coordinates[po5 + 29] == 1 || coordinates[po5 + 29] == 2) { }
-            else {
-                if (squares[po5 + 29].classList.contains("blank")) {
-                    if (j == 0) {
-                        po5 += 29;
-                        squares[po5 - 29].className = "";
-                        squares[po5 - 29].className = "blank";
-                        j = 0;
-                    }
-                    else {
-                        po5 += 29;
-                        squares[po5 - 29].className = "";
-                        squares[po5 - 29].className = "food";
-                        j = 0;
-                    }
-                }
-                else if (coordinates[po5 + 29] == 0) {
-                    if (j == 0) {
-                        po5 += 29;
-                        squares[po5 - 29].className = "";
-                        squares[po5 - 29].className = "blank";
-                        j = 1;
-                    }
-                    else {
-                        po5 += 29;
-                        squares[po5 - 29].className = "";
-                        squares[po5 - 29].className = "food";
-                        j = 1;
-                    }
-                }
-            }
-        }
+        movedown(Ghost_5);
     }
 }
 
@@ -1245,7 +518,7 @@ function updateghost5() {
 
 drawMap();
 function loop() {
-    if (po1 == pos || po2 == pos || po3 == pos || po4 == pos || po5 == pos) { alert("game over"); }
+    if (Ghost_1.po9 == pos || Ghost_2.po9 == pos || Ghost_3.po9 == pos || Ghost_4.po9 == pos || Ghost_5.po9 == pos) { alert("game over"); }
     else {
         frames++;
         updatePacman();
