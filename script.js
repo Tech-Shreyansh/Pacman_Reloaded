@@ -207,6 +207,7 @@ function updatePacman() {
     }
 }
 
+
 //GHOST
 
 function ghost1() {
@@ -513,7 +514,6 @@ function updateghost5() {
         movedown(Ghost_5);
     }
 }
-
 
 
 drawMap();
