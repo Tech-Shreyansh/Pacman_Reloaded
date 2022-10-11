@@ -207,6 +207,7 @@ function updatePacman() {
     }
 }
 
+
 //GHOST
 
 function ghost1() {
@@ -515,7 +516,6 @@ function updateghost5() {
 }
 
 
-
 drawMap();
 function loop() {
     if (Ghost_1.po9 == pos || Ghost_2.po9 == pos || Ghost_3.po9 == pos || Ghost_4.po9 == pos || Ghost_5.po9 == pos) { alert("game over"); }
@@ -543,3 +543,4 @@ function loop() {
     }
 }
 loop();
+
