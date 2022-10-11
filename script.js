@@ -560,7 +560,7 @@ function loop() {
             count++;
             if (count % 300 == 0)
                 t = 0;
-            // console.log(count);
+            console.log(count);
         }
     }
 }
