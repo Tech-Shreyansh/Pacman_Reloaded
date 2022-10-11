@@ -2,11 +2,11 @@
 let frames = 0;
 let pos = 130;
 
-let po1 = 414;
-let f = 0;
+// let po1 = 414;
+// let f = 0;
 let direction = 1;
 let score = 0;
-let d;
+// let d;
 
 
 // MAP DESIGN (29 X 30)
@@ -193,13 +193,20 @@ function updatePacman() {
 
 //GHOST
 
-function ghost() {
+function ghost(po1) {
     const square = squares[po1];
     square.className = "";
     square.classList.add("ghost1");
 }
+function check(){
+    let d2=Math.random;
+    let po2=414;
+    let g=0;
+    ghost(po2);
+    updateghost(d2,po2,g);
+}
 
-function updateghost() {
+function updateghost(d,po1,f) {
     if (d < 0.25) {
         if (frames % 10 == 0) {
             if (coordinates[po1 + 1] == 1 || coordinates[po1 + 1] == 2) { }
@@ -388,7 +395,7 @@ function updateghost() {
                         po1 += 29;
                         squares[po1 - 29].className = "";
                         squares[po1 - 29].className = "blank";
-                        f = 1;
+                        f = 1; 
                     }
                     else {
                         po1 += 29;
@@ -405,19 +412,20 @@ function updateghost() {
 
 drawMap();
 function loop() {
-    if (po1 == pos) {
-        alert("game over");
-    }
-    else {
+    // if (po1 == pos) {
+    //     alert("game over");
+    // }
+    // else {
         frames++;
         updatePacman();
         pacman();
-        ghost();
-        updateghost();
+        // ghost();
+        // updateghost();
+        check();
         food();
         window.requestAnimationFrame(loop);
-        d = Math.random();
-        console.log(d);
-    }
+        // d = Math.random();
+        // console.log(d);
+    // }
 }
 loop();
