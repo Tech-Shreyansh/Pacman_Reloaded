@@ -1,5 +1,6 @@
 // GAME VARIABLES AND CONSTANTS
 let frames = 0;
+let count = 0;
 let pos = 130;
 const Ghost_1 = {
     po9: 414,
@@ -23,7 +24,7 @@ const Ghost_5 = {
 }
 let score = 0;
 let direction = 1;
-let d1, d2, d3, d4, d5,v,po;
+let d1, d2, d3, d4, d5, v, po, t = 0;
 
 
 // MAP DESIGN (29 X 30)
@@ -123,8 +124,7 @@ function pacman() {
         square.className = "";
         square.classList.add("pacman");
     }
-    else 
-    {
+    else {
         if (direction == 1) {
             square.className = "";
             square.classList.add("pacman-up");
@@ -161,12 +161,14 @@ function updatePacman() {
                 squares[pos].classList.add("blank");
                 pos = 434;
                 scoreCount();
+                power_pellet();
             }
             else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos--;
                 scoreCount();
+                power_pellet();
             }
             direction = 4;
         }
@@ -176,12 +178,14 @@ function updatePacman() {
                 squares[pos].classList.add("blank");
                 pos = 406;
                 scoreCount();
+                power_pellet();
             }
             else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
                 squares[pos].className = "";
                 squares[pos].classList.add("blank");
                 pos++;
                 scoreCount();
+                power_pellet();
             }
             direction = 2;
         }
@@ -191,6 +195,7 @@ function updatePacman() {
                 squares[pos].classList.add("blank");
                 pos = pos - 29;
                 scoreCount();
+                power_pellet();
             }
             direction = 1;
         }
@@ -200,6 +205,7 @@ function updatePacman() {
                 squares[pos].classList.add("blank");
                 pos = pos + 29;
                 scoreCount();
+                power_pellet();
             }
             direction = 3;
         }
@@ -239,8 +245,7 @@ function ghost5() {
     square.className = "";
     square.classList.add("ghost5");
 }
-function moveright(Ghost1)
-{
+function moveright(Ghost1) {
     if (frames % 6 == 0) {
         if (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) { }
         else if (Ghost1.po9 == 433) {
@@ -305,8 +310,7 @@ function moveright(Ghost1)
         }
     }
 }
-function moveleft(Ghost1)
-{
+function moveleft(Ghost1) {
     if (frames % 6 == 0) {
         if (coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) { }
         else if (Ghost1.po9 == 407) {
@@ -371,8 +375,7 @@ function moveleft(Ghost1)
         }
     }
 }
-function moveup(Ghost1)
-{
+function moveup(Ghost1) {
     if (frames % 6 == 0) {
         if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) { }
         else {
@@ -408,8 +411,7 @@ function moveup(Ghost1)
     }
 }
 
-function movedown(Ghost1)
-{
+function movedown(Ghost1) {
     if (frames % 6 == 0) {
         if (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2) { }
         else {
@@ -446,7 +448,7 @@ function movedown(Ghost1)
 }
 function updateghost1() {
     if (d1 < 0.25) {
-       moveright(Ghost_1);
+        moveright(Ghost_1);
     }
     else if (d1 < 0.5) {
         moveleft(Ghost_1);
@@ -460,7 +462,7 @@ function updateghost1() {
 }
 function updateghost2() {
     if (d2 < 0.25) {
-       moveright(Ghost_2);
+        moveright(Ghost_2);
     }
     else if (d2 < 0.5) {
         moveleft(Ghost_2);
@@ -474,7 +476,7 @@ function updateghost2() {
 }
 function updateghost3() {
     if (d3 < 0.25) {
-       moveright(Ghost_3);
+        moveright(Ghost_3);
     }
     else if (d3 < 0.5) {
         moveleft(Ghost_3);
@@ -488,7 +490,7 @@ function updateghost3() {
 }
 function updateghost4() {
     if (d4 < 0.25) {
-       moveright(Ghost_4);
+        moveright(Ghost_4);
     }
     else if (d4 < 0.5) {
         moveleft(Ghost_4);
@@ -502,7 +504,7 @@ function updateghost4() {
 }
 function updateghost5() {
     if (d5 < 0.25) {
-       moveright(Ghost_5);
+        moveright(Ghost_5);
     }
     else if (d5 < 0.5) {
         moveleft(Ghost_5);
@@ -514,32 +516,52 @@ function updateghost5() {
         movedown(Ghost_5);
     }
 }
-
+function power_pellet() {
+    if (squares[pos].classList.contains("power-pellet")) {
+        t = 1;
+        count = 0;
+    }
+}
 
 drawMap();
 function loop() {
     if (Ghost_1.po9 == pos || Ghost_2.po9 == pos || Ghost_3.po9 == pos || Ghost_4.po9 == pos || Ghost_5.po9 == pos) { alert("game over"); }
     else {
-        frames++;
-        updatePacman();
-        pacman();
-        ghost1();
-        ghost2();
-        ghost3();
-        ghost4();
-        ghost5();
-        updateghost1();
-        updateghost2();
-        updateghost3();
-        updateghost4();
-        updateghost5();
-        food();
-        window.requestAnimationFrame(loop);
-        d1 = Math.random();
-        d2 = Math.random();
-        d3 = Math.random();
-        d4 = Math.random();
-        d5 = Math.random();
+        if (t == 0) {
+            frames++;
+            updatePacman();
+            pacman();
+            ghost1();
+            ghost2();
+            ghost3();
+            ghost4();
+            ghost5();
+            updateghost1();
+            updateghost2();
+            updateghost3();
+            updateghost4();
+            updateghost5();
+            food();
+            //console.log(t);
+            window.requestAnimationFrame(loop);
+            d1 = Math.random();
+            d2 = Math.random();
+            d3 = Math.random();
+            d4 = Math.random();
+            d5 = Math.random();
+        }
+        else {
+            frames++;
+            updatePacman();
+            pacman();
+            food();
+            window.requestAnimationFrame(loop);
+            //console.log(t);
+            count++;
+            if (count % 300 == 0)
+                t = 0;
+            // console.log(count);
+        }
     }
 }
 loop();
