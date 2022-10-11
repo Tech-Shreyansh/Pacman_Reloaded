@@ -125,22 +125,6 @@ body {
     background-image: url(images/ghost5.png);
 }
 
-.ghost2{
-    background-color: rgb(21, 12, 125);
-    border-radius: 50%;
-}
-.ghost3{
-    background-color: rgb(121, 11, 71);
-    border-radius: 50%;
-}
-.ghost4{
-    background-color: rgb(52, 190, 232);
-    border-radius: 50%;
-}
-.ghost5{
-    background-color: rgb(163, 118, 20);
-    border-radius: 50%;
-}    
 .pacman,
 .pacman-down,
 .pacman-left,
