@@ -78,16 +78,16 @@ body {
 
 .food {
     background-color: rgb(153, 135, 55);
-    border: 6.5px solid black;
+    border: 6px solid black;
     border-radius: 50%;
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .food2 {
     background-color: rgb(153, 135, 55);
-    border: 7px solid black;
+    border: 5.5px solid black;
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .power-pellet {
@@ -105,7 +105,6 @@ body {
 .ghost3,
 .ghost4,
 .ghost5 {
-    background-color: black;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -114,7 +113,7 @@ body {
     background-image: url(images/ghost1.png);
 }
 .ghost2 {
-    background-image: url(images/ghost2.png);
+    background-image: url(images/ghost2.png);;
 }
 .ghost3 {
     background-image: url(images/ghost3.png);
@@ -168,8 +167,9 @@ body {
     background-image: url(images/left.png);
 }
 
-#score {
+#stats {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 200px;
@@ -178,5 +178,32 @@ body {
     color: white;
     font-size: 30px;
     margin: 30px;
+    border-radius: 10%;
 }
 
+#features{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#start{
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 450px;
+    border: 2px solid white;
+}
+#start button{
+    font-size: 30px;
+    margin: 20px;
+    width: 200px;
+    height: 100px;
+    color: white;
+    border-radius: 10%;
+    background-image: linear-gradient(blue, purple)
+}
