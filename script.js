@@ -157,6 +157,7 @@ function scoreCount() {
     else if (squares[pos].classList.contains("power-pellet")) score += 200;
     scoreDisplay.innerHTML = "SCORE:" + score;
 }
+
 function timecount() {
     if (frames % 60 == 0)
         time++;
