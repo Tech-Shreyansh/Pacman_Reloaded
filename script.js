@@ -665,7 +665,7 @@ function gameModes() {
 
 // CHECK WIN
 function checkWin() {
-    if (score == 3620) {
+    if (score == 3600) {
         run = 0;
         btn.disabled = true;
         alert("YOU WON!!");
