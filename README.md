@@ -7,7 +7,7 @@ An arcade game in which you have to visit all parts of the map and collect point
  TURBO MODE -> Pacman will move faster.
 
 # Contributors
-  [Dhruv Goyal] (https://github.com/dhruv-goyal-10) || [Shreyansh Agarwal] (https://github.com/Tech-Shreyansh)
+  [Dhruv Goyal](https://github.com/dhruv-goyal-10) || [Shreyansh Agarwal](https://github.com/Tech-Shreyansh)
 
 # Deployment
 [LIVE DEPLOYMENT](https://tech-shreyansh.github.io/Pacman_Reloaded/)
