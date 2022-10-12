@@ -3,6 +3,9 @@ let frames = 0;
 let count = 0;
 let time = 0;
 let pos = 130;
+let turbo = 0;
+let run = 0;
+
 const Ghost_1 = {
     po9: 414,
     v: 1
@@ -154,10 +157,10 @@ function scoreCount() {
     else if (squares[pos].classList.contains("power-pellet")) score += 200;
     scoreDisplay.innerHTML = "SCORE:" + score;
 }
-function timecount()
-{
-    if(frames%60==0)
-    time++;
+
+function timecount() {
+    if (frames % 60 == 0)
+        time++;
     const timeDisplay = document.getElementById("time");
     timeDisplay.innerHTML = " TIME: " + time + " sec";
 }
@@ -530,15 +533,43 @@ function power_pellet() {
         count = 0;
     }
 }
+function play() {
+    const btn = document.getElementById("play");
+    btn.onclick = function () {
+        if (btn.innerHTML == "RESUME") {
+            btn.innerHTML = "PAUSE";
+            run = 1;
+            // window.requestAnimationFrame(loop);
+        }
+        else if (btn.innerHTML == "PAUSE") {
+            btn.innerHTML = "RESUME";
+            run = 0;
+            // window.cancelAnimationFrame(loop);
+        }
+        else {
+            btn.innerHTML = "PAUSE"
+            run = 1;
+            // window.requestAnimationFrame(loop);
+        }
+    }
+    if (run == 1) loop();
+}
+
+function gameModes() {
+    document.getElementById("turbo").onclick = function () {
+        turbo = 1;
+    }
+    document.getElementById("normal").onclick = function () {
+        turbo = 0;
+    }
+    // console.log(turbo);
+}
 
 drawMap();
 function loop() {
-    if (Ghost_1.po9 == pos || Ghost_2.po9 == pos || Ghost_3.po9 == pos || Ghost_4.po9 == pos || Ghost_5.po9 == pos) { alert("game over"); }
+    if (t == 0 && (Ghost_1.po9 == pos || Ghost_2.po9 == pos || Ghost_3.po9 == pos || Ghost_4.po9 == pos || Ghost_5.po9 == pos)) { alert("game over"); }
     else {
         if (t == 0) {
-            frames++;
-            updatePacman();
-            pacman();
             ghost1();
             ghost2();
             ghost3();
@@ -549,10 +580,6 @@ function loop() {
             updateghost3();
             updateghost4();
             updateghost5();
-            food();
-            timecount();
-            //console.log(t);
-            window.requestAnimationFrame(loop);
             d1 = Math.random();
             d2 = Math.random();
             d3 = Math.random();
@@ -560,19 +587,24 @@ function loop() {
             d5 = Math.random();
         }
         else {
-            frames++;
-            updatePacman();
-            pacman();
-            food();
-            window.requestAnimationFrame(loop);
-            timecount();
-            //console.log(t);
             count++;
             if (count % 300 == 0)
                 t = 0;
-            //console.log(count);
         }
     }
+    frames++;
+    food();
+    updatePacman();
+    pacman();
+    gameModes();
+    // play();
+    timecount();
+    // window.requestAnimationFrame(loop);
 }
-loop();
 
+function outerLoop() {
+    play();
+    window.requestAnimationFrame(outerLoop);
+}
+outerLoop();
+// loop();
