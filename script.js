@@ -181,132 +181,137 @@ function timecount() {
 // PACMAN MOVEMENT
 function updatePacman() {
     // TURBO MODE
-    if (turbo == 1 && run == 1) {
+    {
         document.body.onkeydown = function (e) {
-            if (e.key == "ArrowLeft") {
-                if (pos == 406) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = 434;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+            if (turbo == 1 && run == 1) {
+                if (e.key == "ArrowLeft") {
+                    if (pos == 406) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = 434;
+                        console.log("yes");
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos--;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 4;
                 }
-                else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos--;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowRight") {
+                    if (pos == 434) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = 406;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos++;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 2;
                 }
-                direction = 4;
-            }
-            else if (e.key == "ArrowRight") {
-                if (pos == 434) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = 406;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowUp") {
+                    if (coordinates[pos - 29] == 0 || coordinates[pos - 29] == -2 || coordinates[pos - 29] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = pos - 29;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 1;
                 }
-                else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos++;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowDown") {
+                    if (coordinates[pos + 29] == 0 || coordinates[pos + 29] == -2 || coordinates[pos + 29] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = pos + 29;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 3;
                 }
-                direction = 2;
-            }
-            else if (e.key == "ArrowUp") {
-                if (coordinates[pos - 29] == 0 || coordinates[pos - 29] == -2 || coordinates[pos - 29] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = pos - 29;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
-                }
-                direction = 1;
-            }
-            else if (e.key == "ArrowDown") {
-                if (coordinates[pos + 29] == 0 || coordinates[pos + 29] == -2 || coordinates[pos + 29] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = pos + 29;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
-                }
-                direction = 3;
             }
         }
     }
     // NORMAL MODE
-    else if (turbo == 0 && run == 1) {
+    {
         document.body.onkeyup = function (e) {
-            if (e.key == "ArrowLeft") {
-                if (pos == 406) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = 434;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+            if (turbo == 0 && run == 1) {
+                if (e.key == "ArrowLeft") {
+                    if (pos == 406) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = 434;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos--;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 4;
                 }
-                else if (coordinates[pos - 1] == 0 || coordinates[pos - 1] == -2 || coordinates[pos - 1] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos--;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowRight") {
+                    if (pos == 434) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = 406;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos++;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 2;
                 }
-                direction = 4;
-            }
-            else if (e.key == "ArrowRight") {
-                if (pos == 434) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = 406;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowUp") {
+                    if (coordinates[pos - 29] == 0 || coordinates[pos - 29] == -2 || coordinates[pos - 29] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = pos - 29;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 1;
                 }
-                else if (coordinates[pos + 1] == 0 || coordinates[pos + 1] == -2 || coordinates[pos + 1] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos++;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
+                else if (e.key == "ArrowDown") {
+                    if (coordinates[pos + 29] == 0 || coordinates[pos + 29] == -2 || coordinates[pos + 29] == -1) {
+                        squares[pos].className = "";
+                        squares[pos].classList.add("blank");
+                        pos = pos + 29;
+                        scoreCount();
+                        power_pellet();
+                        munch.play();
+                    }
+                    direction = 3;
                 }
-                direction = 2;
-            }
-            else if (e.key == "ArrowUp") {
-                if (coordinates[pos - 29] == 0 || coordinates[pos - 29] == -2 || coordinates[pos - 29] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = pos - 29;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
-                }
-                direction = 1;
-            }
-            else if (e.key == "ArrowDown") {
-                if (coordinates[pos + 29] == 0 || coordinates[pos + 29] == -2 || coordinates[pos + 29] == -1) {
-                    squares[pos].className = "";
-                    squares[pos].classList.add("blank");
-                    pos = pos + 29;
-                    scoreCount();
-                    power_pellet();
-                    munch.play();
-                }
-                direction = 3;
             }
         }
     }
@@ -626,7 +631,7 @@ function power_pellet() {
 
 // GAME STATES
 const btn = document.getElementById("play");
-function play() {
+function begin() {
     btn.onclick = function () {
         if (btn.innerHTML == "RESUME") {
             btn.innerHTML = "PAUSE";
@@ -655,12 +660,12 @@ function gameModes() {
     document.getElementById("normal").onclick = function () {
         turbo = 0;
     }
-    console.log(turbo);
+
 }
 
 // CHECK WIN
-function checkWin(){
-    if(score==3520){
+function checkWin() {
+    if (score == 3600) {
         run = 0;
         btn.disabled = true;
         alert("YOU WON!!");
@@ -708,6 +713,7 @@ function loop() {
                 t = 0;
         }
     }
+    console.log(turbo);
     frames++;
     food();
     updatePacman();
@@ -720,7 +726,7 @@ function loop() {
 }
 
 function outerLoop() {
-    play();
+    begin();
     window.requestAnimationFrame(outerLoop);
 }
 outerLoop();
