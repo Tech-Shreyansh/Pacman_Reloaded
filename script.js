@@ -19,7 +19,7 @@ const Ghost_2 = {
     v: 1
 }
 const Ghost_3 = {
-    po9: 739,
+    po9: 735,
     v: 1
 }
 const Ghost_4 = {
@@ -549,21 +549,163 @@ function movedown(Ghost1) {
         }
     }
 }
+
+function updateghost_new(Ghost1) {
+    let x = (Ghost1.po9 % 29) - (pos % 29);
+    let y = ((Ghost1.po9 - (Ghost1.po9 % 29)) - (pos - (pos % 29))) / 29;
+    if (y > 0) {
+        if (x >= 0) {
+            if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) {
+                if ((coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1]) == 2 && (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2)) {
+                    movedown(Ghost1);
+                }
+                else if (coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) {
+                    moveright(Ghost1);
+                }
+                else
+                    moveleft(Ghost1);
+            }
+            else
+                moveup(Ghost1);
+        }
+        else if (x < 0) {
+            if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) {
+                if ((coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) && (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2)) {
+                    movedown(Ghost1);
+                }
+                else if ((coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) || (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2)) {
+                    moveleft(Ghost1);
+                }
+                else
+                    moveright(Ghost1);
+            }
+            else
+                moveup(Ghost1);
+        }
+    }
+    else if (y < 0) {
+        if (x >= 0) {
+            if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 + 29] == 2) {
+                if ((coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) && (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2)) {
+                    moveup(Ghost1);
+                }
+                else if ((coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) && (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2)) {
+                    moveleft(Ghost1);
+                }
+                else
+                    moveright(Ghost1);
+            }
+            else
+                movedown(Ghost1);
+        }
+        else if (x < 0) {
+            if (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2) {
+                if ((coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) && (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2)) {
+                    moveup(Ghost1);
+                }
+                else if ((coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) && (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2)) {
+                    moveleft(Ghost1);
+                }
+                else
+                    moveright(Ghost1);
+            }
+            else
+                movedown(Ghost1);
+        }
+    }
+    else {
+        if (x >= 0) {
+            if (coordinates[Ghost1.po9 - 1] == 1 || coordinates[Ghost1.po9 - 1] == 2) {
+                if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) {
+                    if (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2 || coordinates[Ghost1.po9 + 29] == 7) {
+                        moveright(Ghost1);
+                    }
+                    else {
+                        movedown(Ghost1);
+                    }
+                }
+                else
+                    moveup(Ghost1);
+            }
+            else {
+                moveleft(Ghost1);
+            }
+        }
+        else if (x < 0) {
+            if (coordinates[Ghost1.po9 + 1] == 1 || coordinates[Ghost1.po9 + 1] == 2) {
+                if (coordinates[Ghost1.po9 - 29] == 1 || coordinates[Ghost1.po9 - 29] == 2) {
+                    if (coordinates[Ghost1.po9 + 29] == 1 || coordinates[Ghost1.po9 + 29] == 2 || coordinates[Ghost1.po9 + 29] == 7) {
+                        moveleft(Ghost1);
+                    }
+                    else {
+                        movedown(Ghost1);
+                    }
+                }
+                else
+                    moveup(Ghost1);
+            }
+            else {
+                moveright(Ghost1);
+            }
+        }
+    }
+    console.log(x, y);
+}
 function updateghost1() {
-    if (d1 < 0.25) {
-        moveright(Ghost_1);
-    }
-    else if (d1 < 0.5) {
-        moveleft(Ghost_1);
-    }
-    else if (d1 < 0.75) {
-        moveup(Ghost_1);
-    }
-    else if (d1 < 1) {
-        movedown(Ghost_1);
+    if (frames % 8 == 0) {
+        if (d1 < 0.9)
+            updateghost_new(Ghost_1);
+        else
+            updateghost1_random(Ghost_1);
     }
 }
 function updateghost2() {
+    if (frames % 10 == 0) {
+        if (d1 < 0.75)
+            updateghost_new(Ghost_2);
+        else
+            updateghost2_random(Ghost_2);
+    }
+}
+function updateghost3() {
+    if (frames % 7 == 0) {
+        if (d1 < 0.95)
+            updateghost_new(Ghost_3);
+        else
+            updateghost3_random(Ghost_3);
+    }
+}
+function updateghost4() {
+    if (frames % 8 == 0) {
+        if (d1 < 0.84)
+            updateghost_new(Ghost_4);
+        else
+            updateghost4_random(Ghost_4);
+    }
+}
+function updateghost5() {
+    if (frames % 7 == 0) {
+        if (d1 < 0.5)
+            updateghost_new(Ghost_5);
+        else
+            updateghost5_random(Ghost_5);
+    }
+}
+function updateghost1_random() {
+    if (d1 < 0.22) {
+        moveright(Ghost_1);
+    }
+    else if (d1 < 0.44) {
+        moveleft(Ghost_1);
+    }
+    else if (d1 < 0.66) {
+        moveup(Ghost_1);
+    }
+    else if (d1 < 0.9) {
+        movedown(Ghost_1);
+    }
+}
+function updateghost2_random() {
     if (d2 < 0.25) {
         moveright(Ghost_2);
     }
@@ -577,7 +719,7 @@ function updateghost2() {
         movedown(Ghost_2);
     }
 }
-function updateghost3() {
+function updateghost3_random() {
     if (d3 < 0.25) {
         moveright(Ghost_3);
     }
@@ -591,7 +733,7 @@ function updateghost3() {
         movedown(Ghost_3);
     }
 }
-function updateghost4() {
+function updateghost4_random() {
     if (d4 < 0.25) {
         moveright(Ghost_4);
     }
@@ -605,7 +747,7 @@ function updateghost4() {
         movedown(Ghost_4);
     }
 }
-function updateghost5() {
+function updateghost5_random() {
     if (d5 < 0.25) {
         moveright(Ghost_5);
     }
