@@ -7,7 +7,7 @@ let turbo = 0;
 let run = 0;
 let score = 0;
 let direction = 1;
-let d1, d2, d3, d4, d5, v, po, t = 0;
+let d1, d2, d3, d4, d5, v, po, t = 0,countdown;
 
 // GHOST OBJECTS
 const Ghost_1 = {
@@ -694,6 +694,7 @@ function updateghost_random(Ghost1) {
 //POWER - PELLET
 function power_pellet() {
     if (squares[pos].classList.contains("power-pellet")) {
+        countdown=5;
         pill.play();
         t = 1;
         count = 0;
@@ -773,8 +774,12 @@ function loop() {
     }
     else {
         count++;
+        if (count%60==0)
+            countdown--;
         if (count % 300 == 0)
             t = 0;
+        const countdownDisplay = document.getElementById("immunity");
+        countdownDisplay.innerHTML = " Immunity: " + countdown + " sec";
     }
     // }
     // console.log(turbo);
